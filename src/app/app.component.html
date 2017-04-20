@@ -8,9 +8,7 @@
 
     <h3>Una lista de items</h3>
     <!-- Para utilizar el componente, hay que setear dos propiedades-->
-    <ng2-smart-table [settings]="settings" [source]="datos">
-
-    </ng2-smart-table>
+    <ng2-smart-table [settings]="settings" [source]="datos" (editConfirm)="showMessage($event)"></ng2-smart-table>
   </form>
   <input type="submit" class="btn btn-primary" (click)="showFormStateChange()" value="Show or  Hide Form">
 </div>

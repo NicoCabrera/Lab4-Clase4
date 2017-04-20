@@ -10,6 +10,8 @@ import { Ng2SmartTableModule } from 'ng2-smart-table'; //<----- lo importamos
 export class AppComponent {
 
   //Propiedades
+
+  vacio=[];
   datos:Array<Person> =[{
     nombre:"Juan",
     email:"elmaildejuan@gmail",
@@ -26,11 +28,32 @@ export class AppComponent {
     edad:50
   }];
 
-  //configuraciones para la tabla del componente
+  /*configuraciones para la tabla del componente. Para configuraciones más complejas, ver https://akveo.github.io/ng2-smart-table/#/documentation
+    Las configuraciones básicas sobre el tag html son las propiedades 'source' y 'settings'.
+  */
   settings={
+    pager:{
+      perPage: 2      // <------ para mostrar items paginados. Dos items por pagina en éste ejemplo
+    },
+    noDataMessage:"No hay datos para mostrar",
+    actions:{
+      edit:true,
+      add:true,
+      delete:true,
+    },
+    edit:{
+      editButtonContent:"Modificar",
+      create:true,
+      cancel:true,
+      confirmSave:true
+    },
     columns:{
       nombre:{
         title:"Nombre",
+        editable:false,
+        editor:{
+          type:"textarea"
+        }
       },
       edad:{
         title:"Edad",
@@ -57,5 +80,10 @@ export class AppComponent {
   }
   showFormStateChange(){
     this.showForm = !this.showForm;
+  }
+
+  showMessage(e){
+    console.log(e);
+    e.confirm.resolve(e.newData);
   }
 }
