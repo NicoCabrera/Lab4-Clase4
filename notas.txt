@@ -1,0 +1,32 @@
+Clase con Mario Rampi
+
+Paso de datos
+libreria Http y algunas directivas
+
+
+Crear un formulario con dos inputs y un botón.
+Ya vimos como usar expresiones {{expression}}
+vamos a ver como bindear datos de otras formas.
+
+
+crear un input type text con atributo name="nombre"
+y otro tipo email con el atributo name="email"
+un input type submit.
+
+4)maneras de pasar datos entre la vista y el modelo
+{{expression}} se crea en e modelo yva hacia la vita. one-way
+[propiedades]   todas las propiedades del html, si les ponemos corchetes, va a buscar una variable/funcion dentro del controlador.
+                El flujo es del moelo a la vista también. one-way
+                E importante éste concepto. Para cambiar dinamicamente una propiedad html con datos del modelo.
+(eventos)       se pone el nombre del evento entre parentesis. ej (click)="onCLick()"   one-way
+                a las funciones se le puede pasar datos del evento pasandoles por parametro "onClick($event)"
+                d esta manera tenemos acceso a las propiedades del evento.
+                si tengo una propiedad en el modelo que represente un formulario, puedo pasarle por parametro
+                la propiedad. ej "onClick(form)"
+[(dobleBinding)] dende el modelo a la clase y viceversa.  two-way
+
+
+Template Directives:  *ngIf="modelo" usando variable como idex, first, last, odd, even
+
+Usamos el módulo ng2-smart-table
+

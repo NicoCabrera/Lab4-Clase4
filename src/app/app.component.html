@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="jumbotron">
+    <h2 class="title">Aplicación de prueba</h2>
+  </div>
+  <form *ngIf="showForm">
+    <input type="text" name="nombre" [(ngModel)]="form.nombre">
+    <input type="email" name="email" [(ngModel)]="form.email">
+
+    <h3>Una lista de items</h3>
+    <ul>
+      <li *ngFor="let item of datos ;let i = index; let f = first; let l = last">{{"LAST? = " + l + " FIRST? = " + f + " ID: " + i + " Nombre: " + item.nombre + " E-MAIL: " + item.email + " Edad: " + item.edad}} </li>
+    </ul>
+    <button (click)="onClick($event,form)" class="btn btn-primary">Click me</button>
+  </form>
+  <input type="submit" class="btn btn-primary" (click)="showFormStateChange()" value="Show or  Hide Form">
+</div>
